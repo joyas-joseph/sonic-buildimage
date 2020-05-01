@@ -299,10 +299,16 @@ RUN apt-get update && apt-get install -y \
         libnetfilter-conntrack-dev \
         libnftnl-dev \
 # For SAI3.7
-        libprotobuf-dev \
+        #libprotobuf-dev \
 # For DHCP Monitor tool
         libexplain-dev \
         libevent-dev
+
+RUN wget http://ftp.us.debian.org/debian/pool/main/p/protobuf/libprotobuf-dev_3.0.0-9_amd64.deb \
+        http://ftp.us.debian.org/debian/pool/main/p/protobuf/libprotobuf-lite10_3.0.0-9_amd64.deb \
+        http://ftp.us.debian.org/debian/pool/main/p/protobuf/libprotobuf10_3.0.0-9_amd64.deb && \
+    dpkg -i libprotobuf-lite10_3.0.0-9_amd64.deb libprotobuf10_3.0.0-9_amd64.deb libprotobuf-dev_3.0.0-9_amd64.deb
+
 
 ## Config dpkg
 ## install the configuration file if it’s currently missing
